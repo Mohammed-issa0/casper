@@ -1,0 +1,169 @@
+/* start global rules  */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --main-color: #19c8fa;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: rgb(8, 78, 55);
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* small  */
+@media (main-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* medium  */
+@media (main-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* large  */
+@media (main-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* end global rules  */
+/* start header */
+.header {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.header .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 97px;
+
+}
+
+.header .container::after {
+    content: "";
+    width: calc(100% - 30px);
+    height: 1px;
+    bottom: 0;
+    position: absolute;
+    background-color: #a2a2a2;
+    left: 15px;
+}
+
+.header .container .logo img {
+    height: 40px;
+}
+
+.header .container .nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.header .container .nav .toggle-menu {
+    color: white;
+    font-size: 22px;
+}
+
+@media (min-width: 768px) {
+    .header .container .nav .toggle-menu {
+        display: none;
+    }
+}
+
+.header .container .nav ul {
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    .header .container .nav ul {
+        display: none;
+    }
+
+    .header .container .nav .toggle-menu:hover+ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgb(0 0 0 / 50%);
+    }
+
+    .header .container .nav ul li a {
+        padding: 15px !important;
+    }
+
+}
+
+.header .container .nav ul a {
+    display: block;
+    padding-left: 15px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    font-size: 14px;
+    padding: 40px 10px;
+    position: relative;
+}
+
+.header .container .nav ul .active,
+.header .container .nav ul a:hover {
+    color: var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+
+}
+
+.header .form {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    margin-left: 30px;
+    border-left: 1px solid white;
+}
+
+.header .form i {
+    font-size: 20px;
+    position: absolute;
+    color: white;
+    top: 50%;
+    transform: translatey(-50%);
+    right: 0;
+}
+
+/* end header */
