@@ -7,18 +7,20 @@
     margin: 0;
 }
 
+/* Start Variables */
 :root {
     --main-color: #19c8fa;
     --transparent-color: rgb(15 116 143 / 70%);
+    --section-padding: 100px;
 }
 
+/* End Variables */
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: "Open Sans", sans-serif;
-    background-color: rgb(8, 78, 55);
 }
 
 ul {
@@ -58,63 +60,64 @@ li {
 }
 
 /* end global rules  */
-/* start header */
-.header {
+/* Start Header */
+header {
     position: absolute;
+    left: 0;
     width: 100%;
     z-index: 2;
 }
 
-.header .container {
-    position: relative;
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     min-height: 97px;
 }
 
-.header .container::after {
+header .container::after {
     content: "";
-    width: calc(100% - 30px);
-    height: 1px;
-    bottom: 0;
     position: absolute;
+    height: 1px;
     background-color: #a2a2a2;
+    bottom: 0;
+    width: calc(100% - 30px);
     left: 15px;
 }
 
-.header .container .logo img {
+header .logo img {
     height: 40px;
 }
 
-.header .container .nav {
+header nav {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
-.header .container .nav .toggle-menu {
+header nav .toggle-menu {
     color: white;
     font-size: 22px;
 }
 
 @media (min-width: 768px) {
-    .header .container .nav .toggle-menu {
+    header nav .toggle-menu {
         display: none;
     }
 }
 
-.header .container .nav ul {
+header nav ul {
     display: flex;
 }
 
 @media (max-width: 767px) {
-    .header .container .nav ul {
+    header nav ul {
         display: none;
     }
 
-    .header .container .nav .toggle-menu:hover+ul {
+    header nav .toggle-menu:hover+ul {
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -124,54 +127,53 @@ li {
         background-color: rgb(0 0 0 / 50%);
     }
 
-    .header .container .nav ul li a {
+    header nav ul li a {
         padding: 15px !important;
     }
-
 }
 
-.header .container .nav ul a {
-    display: block;
-    padding-left: 15px;
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
-    font-size: 14px;
+header nav ul li a {
     padding: 40px 10px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
     position: relative;
+    z-index: 2;
 }
 
-.header .container .nav ul .active,
-.header .container .nav ul a:hover {
+header nav ul li a.active,
+header nav ul li a:hover {
     color: var(--main-color);
     border-bottom: 1px solid var(--main-color);
 }
 
-.header .form {
-    position: relative;
+header nav .form {
     width: 40px;
     height: 30px;
+    position: relative;
     margin-left: 30px;
     border-left: 1px solid white;
 }
 
-.header .form i {
-    font-size: 20px;
-    position: absolute;
+header nav .form i {
     color: white;
+    position: absolute;
+    font-size: 20px;
     top: 50%;
-    transform: translatey(-50%);
+    transform: translateY(-50%);
     right: 0;
 }
 
-/* end header */
-/* start landing  */
+/* End Header */
+/* Start Landing */
 .landing {
-    position: relative;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #1f2021;
-    background-image: url();
+    background-image: url("../images/landing.jpg");
     background-size: cover;
+    position: relative;
 }
 
 .landing .overlay {
@@ -200,12 +202,21 @@ li {
     max-width: 500px;
 }
 
+@media (max-width: 767px) {
+    .landing .text {
+        width: 100%;
+    }
+
+    .landing .text .content {
+        max-width: 100%;
+    }
+}
+
 .landing .text .content h2 {
-    margin-bottom: 20px;
-    /* padding-bottom: 20px; */
     font-size: 32px;
     font-weight: normal;
     line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 .landing .text .content p {
@@ -213,4 +224,46 @@ li {
     line-height: 2;
 }
 
-/* end landing  */
+.landing .change-background {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ddd;
+}
+
+@media (max-width: 767px) {
+    .landing .change-background {
+        display: none;
+    }
+}
+
+.landing .fa-angle-left {
+    left: 30px;
+}
+
+.landing .fa-angle-right {
+    right: 30px;
+}
+
+.landing .bullets {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    display: flex;
+}
+
+.landing .bullets li {
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.landing .bullets li.active {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+/* End Landing */
